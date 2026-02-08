@@ -9,14 +9,14 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import config_manager
 from app.utils.log import logger
 
-postgres_host = config_manager.get().POSTGRES_HOST
-postgres_port = config_manager.get().POSTGRES_PORT
-postgres_user = config_manager.get().POSTGRES_USER
-postgres_password = config_manager.get().POSTGRES_PASSWORD
-postgres_database = config_manager.get().POSTGRES_DB
+mariadb_host = config_manager.get().MARIADB_HOST
+mariadb_port = config_manager.get().MARIADB_PORT
+mariadb_user = config_manager.get().MARIADB_USER
+mariadb_password = config_manager.get().MARIADB_PASSWORD
+mariadb_database = config_manager.get().MARIADB_DB
 
 
-database_url = config_manager.get().DATABASE_URL or f"postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_database}"
+database_url = config_manager.get().DATABASE_URL or f"mysql+pymysql://{mariadb_user}:{mariadb_password}@{mariadb_host}:{mariadb_port}/{mariadb_database}?charset=utf8mb4"
 engine = create_engine(database_url)
 SessionLocal = sessionmaker(
     autocommit=False,

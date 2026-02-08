@@ -13,11 +13,11 @@ class Settings(BaseSettings):
     DATABASE_URL: str | None
     PROXY: str | None
     FLARE_SOLVERR_URL: str | None
-    POSTGRES_HOST: str | None
-    POSTGRES_PORT: str | None
-    POSTGRES_USER: str | None
-    POSTGRES_PASSWORD: str | None
-    POSTGRES_DB: str | None
+    MARIADB_HOST: str | None
+    MARIADB_PORT: str | None
+    MARIADB_USER: str | None
+    MARIADB_PASSWORD: str | None
+    MARIADB_DB: str | None
 
     class Config:
         env_file = os.path.join(env_path)
